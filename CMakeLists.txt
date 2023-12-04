@@ -264,8 +264,9 @@ set_target_properties(opus
                                  ${OPUS_LIBRARY_VERSION_MAJOR}
                                  VERSION
                                  ${OPUS_LIBRARY_VERSION}
-                                 PUBLIC_HEADER
-                                 "${Opus_PUBLIC_HEADER}")
+#                                 PUBLIC_HEADER
+#                                 "${Opus_PUBLIC_HEADER}"
+    )
 
 target_include_directories(
   opus
