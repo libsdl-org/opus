@@ -345,6 +345,10 @@ endif()
 if(BUILD_SHARED_LIBS)
   if(WIN32)
     target_compile_definitions(opus PRIVATE DLL_EXPORT)
+    # FIXME: keep soversion in sync with autotools
+    set_property(TARGET opus PROPERTY RUNTIME_OUTPUT_NAME "opus-0")
+    # Requires CMake 3.27, so not sufficient
+    set_property(TARGET opus PROPERTY DLL_NAME_WITH_SOVERSION FALSE)
   elseif(HIDDEN_VISIBILITY_SUPPORTED)
     set_target_properties(opus PROPERTIES C_VISIBILITY_PRESET hidden)
   endif()
